@@ -55,7 +55,7 @@ def indivdual_DE_table(data, options):
 def prepare_data(data): 
     left_most_col = data.columns.get_loc("State")
     var = data.iloc[:,left_most_col:]
-    var = var.select_dtypes(exclude='bool')
+    var = var.select_dtypes(exclude=['bool', 'float64', 'int64'])
     var = var.drop(columns=['weights'])
     df = pd.DataFrame()
     for i in var.columns:
